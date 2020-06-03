@@ -61,6 +61,11 @@ end
    
    self.new_from_db(DB[:conn].execute(sql, name)[0])
  end 
+ 
+ def update 
+   sql = "UPDATE students WHERE name = ?, grade = ?, id = ?"
+   DB[:conn].execute(sql, self.name, self.grade, self.id)
+ end 
   
 
   # Remember, you can access your database connection anywhere in this class
